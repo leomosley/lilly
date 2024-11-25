@@ -153,6 +153,32 @@ After applying some simple styles, making use of CSS variables, I had this:
 
 As of now the UI is not completely responsive.
 
+**Average Function:**
+
+In order to implement the info component I will first have to implement the `average` API route. 
+
+This was simple to implement. The function simply iterates through the medicines array to record the total price of all medicines (acounting for null values).
+
+```python
+with open('data.json', 'r') as meds:
+    current_db = json.load(meds)
+    medicines = current_db["medicines"]
+    total = 0
+    num_meds = len(medicines)
+    for med in medicines:
+        price = med["price"]
+
+        if isinstance(price, (int, float)) and price != None:
+            total += price
+        else:
+            num_meds -= 1
+
+    
+    if num_meds <= 0:
+        return { "error" : "No valid average available."}
+    
+    return { "average" : total / num_meds}
+```
 
 ## Objectives - Innovative Solutions
 *For the challenge objectives, did you do anything in a particular way that you want to discuss? Is there anything you're particularly proud of that you want to highlight? Did you attempt some objectives multiple times, or go back and re-write particular sections of code? If so, why? Use this space to document any key points you'd like to tell us about.*
