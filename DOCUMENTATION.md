@@ -186,6 +186,14 @@ Now that I have implemented the avearge API route I can create the info componen
 
 ![info](docs/images/info.png)
 
+The last UI feature which needs to be implemented is the deleting of medicines. In order to do this I am going to make some changes to the `medicine-card` component. 
+
+The change was adding a button to the card to call the `deleteMedicine` util (which I had to modify to take in `FormData`) on click. Adding this meant I had to alter the component so that it used only `appendChild` and not `innerHTML` as they were causing conflicts.
+
+Once implemented the card looked like this:
+
+![updated card](image.png)
+
 ## Objectives - Innovative Solutions
 *For the challenge objectives, did you do anything in a particular way that you want to discuss? Is there anything you're particularly proud of that you want to highlight? Did you attempt some objectives multiple times, or go back and re-write particular sections of code? If so, why? Use this space to document any key points you'd like to tell us about.*
 
@@ -194,3 +202,5 @@ Now that I have implemented the avearge API route I can create the info componen
 
 ## Evaluation
 *How did you feel about the challenge overall? Did some parts go better than others? Did you run out of time? If you were to do this again, and were given more time, what would you do differently?*
+
+NO sanitation of inputs
