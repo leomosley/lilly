@@ -143,6 +143,16 @@ if (action === "create") {
 }
 ```
 
+**Styling:**
+
+A big improvement that can be made now is on the styles. My idea of the layout has changed a little from the start, now I am going to place the sidebar on the left instead. 
+
+After applying some simple styles, making use of CSS variables, I had this:
+
+![styled ui](docs/images/styled-ui.png)
+
+As of now the UI is not completely responsive.
+
 
 ## Objectives - Innovative Solutions
 *For the challenge objectives, did you do anything in a particular way that you want to discuss? Is there anything you're particularly proud of that you want to highlight? Did you attempt some objectives multiple times, or go back and re-write particular sections of code? If so, why? Use this space to document any key points you'd like to tell us about.*
