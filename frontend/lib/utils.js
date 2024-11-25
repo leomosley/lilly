@@ -93,6 +93,7 @@ export async function getAverage() {
     method: "GET",
   });
   if (response.ok) {
-    return await response.json();
+    const data = await response.json();
+    return data["average"];
   }
 }

@@ -1,7 +1,8 @@
-import { createMedicine, getAllMedicines, updateMedicine } from "./lib/utils.js";
+import { createMedicine, getAllMedicines, getAverage, updateMedicine } from "./lib/utils.js";
 import { createMedicineCard } from "./components/medicine-card.js";
 import { createMedicineForm } from "./components/medicine-form.js";
 import { createSearch } from "./components/search.js";
+import { createInfo } from "./components/info.js";
 
 let medicines = [];
 
@@ -66,6 +67,14 @@ function renderSearch() {
   root.appendChild(search);
 }
 
+async function renderInfo() {
+  const average = await getAverage();
+  const root = document.getElementById("info");
+  const info = createInfo(average);
+  root.appendChild(info);
+}
+
 renderMedicines();
 renderForm();
 renderSearch();
+renderInfo();

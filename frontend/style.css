@@ -137,3 +137,17 @@ select {
 .medicine-form>button:hover {
     background: var(--accent-hover);
 }
+
+.info-container {
+    margin-top: auto;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-label {
+    font-weight: 600;
+}
