@@ -214,12 +214,22 @@ This solved a few UX issues I was having.
 ## Objectives - Innovative Solutions
 *For the challenge objectives, did you do anything in a particular way that you want to discuss? Is there anything you're particularly proud of that you want to highlight? Did you attempt some objectives multiple times, or go back and re-write particular sections of code? If so, why? Use this space to document any key points you'd like to tell us about.*
 
+I like how I've structured the code base, it really helped ease the development process. It was nice to have that familiar feeling of the component based architecture that you get with libraries like React.
 
+I'm quite proud of the level of the speed of searching for specific medicines. However, I do not think my implementation of the filtering is scalable. If there was a larger data set of medicines it could become much slower.
+
+I like that the form can be used for both updating and creating medicines.
 
 ## Problems Faced
 *Use this space to document and discuss any issues you faced while undertaking this challenge and how you solved them. We recommend doing this proactively as you experience and resolve the issues - make sure you don't forget! (Screenshots are helpful, though not required)*.
 
+One of the most challenging aspects of this task , for me, was developing it in JavaScript without TypeScript. The mental mapping and things I have gotten used to with TS meant that there were times where I didn't consider that certain values could be null or undefined before trying to access them (as I would have usually got a warning). But I think I was able to overcome this after a while and with the use of JS Doc. 
+
+I had some issues with passing the data to the API at the beginning. However, once I realised it was expecting `FormData` I didn't have an issues with it. 
+
+If I had more time I would have like to improve the responsiveness of the design so that it was more usable on smaller viewports like phones.
+
 ## Evaluation
 *How did you feel about the challenge overall? Did some parts go better than others? Did you run out of time? If you were to do this again, and were given more time, what would you do differently?*
 
-NO sanitation of inputs
+Overall I feel like I was able to implement a user friendly interface for interacting with all aspects of the backend API. If I were to do this again and given more time I would probably though more about the layout and design. I think there is probably a better / more intutive way to structure the page. Although I like the multiple use cases form I do think that it can be unclear as to how it works and it also might be better to seperate the create and update functions more.
