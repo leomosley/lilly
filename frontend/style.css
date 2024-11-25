@@ -54,6 +54,7 @@ main {
 }
 
 .medicine-card {
+    position: relative;
     width: 250px;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -61,6 +62,24 @@ main {
     box-shadow: var(--border);
     background: var(--background);
     height: fit-content;
+}
+
+.medicine-card button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    padding: 4px;
+    transition: color 0.2s ease;
+}
+
+.medicine-card button:hover {
+    color: var(--accent);
 }
 
 .sidebar {
@@ -99,7 +118,6 @@ main {
     margin-bottom: 0.5rem;
 }
 
-/* Form labels */
 label {
     font-size: 1rem;
     color: #555;
@@ -107,7 +125,6 @@ label {
     margin-bottom: 0.5rem;
 }
 
-/* Input fields */
 .medicine-form>input,
 select {
     width: 100%;

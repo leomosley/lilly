@@ -68,15 +68,13 @@ export async function updateMedicine(formData) {
 
 /**
  * Deletes existing medicine in backend.
- * @param {string} name 
+ * @param {FormData} formData 
  * @returns {Promise<Response>}
  */
-export async function deleteMedicine(name) {
-  const response = await fetch(`${BASE_URL}/create`, {
+export async function deleteMedicine(formData) {
+  const response = await fetch(`${BASE_URL}/delete`, {
     method: "DELETE",
-    body: JSON.stringify({
-      name: name,
-    })
+    body: formData
   });
 
   if (response.ok) {
