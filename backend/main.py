@@ -73,6 +73,10 @@ def create_med(name: str = Form(...), price: float = Form(...)):
     """
     with open('data.json', 'r+') as meds:
         current_db = json.load(meds)
+        
+        if name.lower() in (med.name.lower() for med in current_db["medicines"]):
+            return { "error" : "Medicine already exists."}
+    
         new_med = {"name": name, "price": price}
         current_db["medicines"].append(new_med)
         meds.seek(0)
@@ -95,12 +99,13 @@ def update_med(name: str = Form(...), price: float = Form(...)):
     with open('data.json', 'r+') as meds:
         current_db = json.load(meds)
         for med in current_db["medicines"]:
-            if med['name'] == name:
+            if med['name'].lower() == name.lower():
                 med['price'] = price
                 meds.seek(0)
                 json.dump(current_db, meds)
                 meds.truncate()
                 return {"message": f"Medicine updated successfully with name: {name}"}
+            
     return {"error": "Medicine not found"}
 
 @app.delete("/delete")
@@ -116,12 +121,13 @@ def delete_med(name: str = Form(...)):
     with open('data.json', 'r+') as meds:
         current_db = json.load(meds)
         for med in current_db["medicines"]:
-            if med['name'] == name:
+            if med['name'].lower() == name.lower():
                 current_db["medicines"].remove(med)
                 meds.seek(0)
                 json.dump(current_db, meds)
                 meds.truncate()
                 return {"message": f"Medicine deleted successfully with name: {name}"}
+            
     return {"error": "Medicine not found"}
 
 @app.get("/average")
