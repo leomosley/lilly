@@ -114,6 +114,35 @@ With the output being this:
 
 ![initial output](docs/images/initial-output.png)
 
+This same methodology of using components and mapping them to the DOM can be used to implement the following features as well:
+
+- The search bar
+- The create/update form
+- And the info section
+
+When implemented I had this:
+
+![unstyled ui](docs/images/unstyled-ui.png)
+
+
+The functionality for searching was pretty simple to implement. All I had to do was move the `medicines` array fetched from the API into the global scope so that I could filter through it when the value of the input changes.
+
+```js
+const filteredMedicines = medicines.filter(medicine =>
+  medicine.name.toLowerCase().includes(value.toLowerCase())
+);
+```
+
+The form works by checking what action was selected to decided what API util function to pass the form data into in order to peform the mutation on the backend.
+
+```js
+if (action === "create") {
+  const response = await createMedicine(formData);
+} else {
+  const response = await updateMedicine(formData);
+}
+```
+
 
 ## Objectives - Innovative Solutions
 *For the challenge objectives, did you do anything in a particular way that you want to discuss? Is there anything you're particularly proud of that you want to highlight? Did you attempt some objectives multiple times, or go back and re-write particular sections of code? If so, why? Use this space to document any key points you'd like to tell us about.*
