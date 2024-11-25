@@ -194,8 +194,27 @@ Once implemented the card looked like this:
 
 ![updated card](image.png)
 
+**Final Changes:** 
+
+When playing around with the solution I noticed that there were some issues with the backend API. When creating and updating the medicines it was being case sensitive and not checking for duplicates. This meant that you could create more than one medicine with the same name (which shouldn't be allowed as in this case the name is the unique identifier) and when updating the medicines if you don't use the correct casing the update will not be applied. So I made these simple changes to the backend API.
+
+```python
+# in create_med
+if name.lower() in (med.name.lower() for med in current_db["medicines"]):
+            return { "error" : "Medicine already exists."}
+
+# in update_med and delete_med
+- if med['name'] == name:
++ if med['name'].lower() == name.lower():
+
+```
+
+This solved a few UX issues I was having.
+
 ## Objectives - Innovative Solutions
 *For the challenge objectives, did you do anything in a particular way that you want to discuss? Is there anything you're particularly proud of that you want to highlight? Did you attempt some objectives multiple times, or go back and re-write particular sections of code? If so, why? Use this space to document any key points you'd like to tell us about.*
+
+
 
 ## Problems Faced
 *Use this space to document and discuss any issues you faced while undertaking this challenge and how you solved them. We recommend doing this proactively as you experience and resolve the issues - make sure you don't forget! (Screenshots are helpful, though not required)*.
