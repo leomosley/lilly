@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Medicines</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="disclaimer" id="disclaimer">
-        Disclaimer: All medicine names and prices used in this application are fictional and do not represent any real medicine(s).
-    </div>
-    <header>
-        <h1>Medicine Tracker</h1>
-    </header>
-    <main>
 
+<body>
+    <div id="disclaimer" class="disclaimer">
+        Disclaimer: All medicine names and prices used in this application are fictional and do not
+        represent any real medicine(s).
+    </div>
+    <main>
+        <aside id="sidebar" class="sidebar">
+            <div id="search" class="search-container"></div>
+            <div id="form" class="form-container"></div>
+            <div id="info" class="info-container"></div>
+        </aside>
+        <div id="medicines" class="medicines"></div>
     </main>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
+
 </html>
