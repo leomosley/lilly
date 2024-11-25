@@ -1,4 +1,12 @@
 /* ---- Global styles ---- */
+:root {
+    --background: #f4f4f4;
+    --color: #333;
+    --border: #e3e3e3;
+    --accent: #59c1ac;
+    --accent-hover: #338d7b;
+}
+
 
 /* CSS Reset */
 * {
@@ -20,8 +28,8 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: black;
-    color: white;
+    background-color: var(--accent);
+    color: var(--background);
     text-align: center;
     padding: 0.5rem;
     z-index: 1000;
@@ -30,3 +38,102 @@ body {
 }
 
 /* ---- Your custom styles below ---- */
+main {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.medicines {
+    display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
+    max-height: calc(100vh - 30px - 2rem);
+    overflow-y: auto;
+    gap: 0.8rem;
+}
+
+.medicine-card {
+    width: 250px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--border);
+    background: var(--background);
+    height: fit-content;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    width: 300px;
+    height: calc(100vh - 30px - 2rem);
+    right: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--border);
+    background: var(--background);
+}
+
+.search {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    box-shadow: #e3e3e3;
+    background: var(--background);
+    border-radius: 0.5rem;
+}
+
+.medicine-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.medicine-form>h2 {
+    font-size: large;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Form labels */
+label {
+    font-size: 1rem;
+    color: #555;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Input fields */
+.medicine-form>input,
+select {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease-in-out;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    box-shadow: #e3e3e3;
+    background: var(--background);
+    border-radius: 0.5rem;
+}
+
+.medicine-form>button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    background: #59c1ac;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.medicine-form>button:hover {
+    background: var(--accent-hover);
+}
