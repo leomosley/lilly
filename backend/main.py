@@ -39,7 +39,7 @@ def get_all_meds():
     Returns:
         dict: A dictionary of all medicines
     """
-    with open('data.json') as meds:
+    with open("data.json") as meds:
         data = json.load(meds)
     return data
 
@@ -52,11 +52,11 @@ def get_single_med(name: str):
     Returns:
         dict: A dictionary containing the medicine details
     """
-    with open('data.json') as meds:
+    with open("data.json") as meds:
         data = json.load(meds)
         for med in data["medicines"]:
             print(med)
-            if med['name'] == name:
+            if med["name"] == name:
                 return med
     return {"error": "Medicine not found"}
 
@@ -71,10 +71,10 @@ def create_med(name: str = Form(...), price: float = Form(...)):
     Returns:
         dict: A message confirming the medicine was created successfully.
     """
-    with open('data.json', 'r+') as meds:
+    with open("data.json", "r+") as meds:
         current_db = json.load(meds)
         
-        if name.lower() in (med.name.lower() for med in current_db["medicines"]):
+        if name.lower() in (med["name"].lower() for med in current_db["medicines"]):
             return { "error" : "Medicine already exists."}
     
         new_med = {"name": name, "price": price}
@@ -96,11 +96,11 @@ def update_med(name: str = Form(...), price: float = Form(...)):
     Returns:
         dict: A message confirming the medicine was updated successfully.
     """
-    with open('data.json', 'r+') as meds:
+    with open("data.json", "r+") as meds:
         current_db = json.load(meds)
         for med in current_db["medicines"]:
-            if med['name'].lower() == name.lower():
-                med['price'] = price
+            if med["name"].lower() == name.lower():
+                med["price"] = price
                 meds.seek(0)
                 json.dump(current_db, meds)
                 meds.truncate()
@@ -118,10 +118,10 @@ def delete_med(name: str = Form(...)):
     Returns:
         dict: A message confirming the medicine was deleted successfully.
     """
-    with open('data.json', 'r+') as meds:
+    with open("data.json", "r+") as meds:
         current_db = json.load(meds)
         for med in current_db["medicines"]:
-            if med['name'].lower() == name.lower():
+            if med["name"].lower() == name.lower():
                 current_db["medicines"].remove(med)
                 meds.seek(0)
                 json.dump(current_db, meds)
@@ -137,7 +137,7 @@ def average_price():
     Returns:
         dict: A value float value of the average or an error message.
     """
-    with open('data.json', 'r') as meds:
+    with open("data.json", "r") as meds:
         current_db = json.load(meds)
         medicines = current_db["medicines"]
         total = 0
